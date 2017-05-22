@@ -248,23 +248,58 @@
                 <div class="col-md-6 loginForm-wrap">
                     <div class="loginForm clearfix">
                         <div class="col-xs-12">
-                            <form action="" name="login">
+
+                            <!--  ----------------------------------------------------------------------  -->
+                            <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+                            <!--  If necessary, please modify the charset parameter to specify the        -->
+                            <!--  character set of your HTML page.                                        -->
+                            <!--  ----------------------------------------------------------------------  -->
+
+                            <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+                            <!--  ----------------------------------------------------------------------  -->
+                            <!--  NOTE: Please add the following <FORM> element to your page.             -->
+                            <!--  ----------------------------------------------------------------------  -->
+
+                            <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                                <input type=hidden name="oid" value="00D0Y000001JTLG">
+                                <input type=hidden name="retURL" value="http://flyzen.co/">
+
+                                <!--  ----------------------------------------------------------------------  -->
+                                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                                <!--  these lines if you wish to test in debug mode.                          -->
+                                <!--  <input type="hidden" name="debug" value=1>                              -->
+                                <!--  <input type="hidden" name="debugEmail"                                  -->
+                                <!--  value="illarionovam@gmail.com">                                         -->
+                                <!--  ----------------------------------------------------------------------  -->
+
+                                <label for="first_name">Hello, my name is</label><input placeholder="Jacob" id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+                                <label for="email">my e-mail</label><input placeholder="example@mail.com" id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+                                <label for="description">and I want to ask</label><textarea name="description"></textarea><br>
+
+                                <input type="submit" name="submit" value="Send">
+
+                            </form>
+<!--                             <form action="" name="login">
                                 <div class="form-group input-wrapp">
                                 	<label>Hello, my name is</label>
-                                    <input type="text" name="name" placeholder="Jacob">
+                                    <input type="text" name="name" placeholder="Jacob" id="name">
                                 </div>
                                 <div class="form-group input-wrapp">
                                 	<label for="">my e-mail</label>
-                                    <input type="email" name="email" placeholder="example@mail.com">
+                                    <input type="email" name="email" placeholder="example@mail.com" id="email">
                                 </div>
                                 <div class="form-group input-wrapp text-wrapp">
                                 	<label for="">and I want to ask</label>
-                                    <textarea name="" id="" cols="30" rows="1"></textarea>
+                                    <textarea name="message" id="" cols="30" rows="5" id="message"></textarea>
                                 </div>
                                 <div class="form-group btn-wrap">
-                                    <button class="btn btn-primary" type="submit">Send a question</button>
+                                    <button class="btn btn-primary" type="submit" onclick="send();">Send a question</button>
                                 </div>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                 </div>
