@@ -487,6 +487,7 @@ header {
       width: 5px; }
 
 footer {
+  padding: 10px 0;
   font-size: 14px;
   text-align: center;
   position: relative;
@@ -500,6 +501,8 @@ footer {
     margin-top: 0; }
   footer a {
     text-decoration: underline; }
+  footer p {
+    margin-bottom: 0; }
   footer .phone {
     font-weight: 600; }
   footer .social-wrapp {
@@ -518,6 +521,8 @@ footer {
     footer .social-wrapp:hover {
       background-color: #1f99ff;
       transform: scale(1.1); }
+    footer .social-wrapp a {
+      color: #fff; }
 
 .notes header .navbar {
   margin-bottom: 0; }
@@ -594,9 +599,7 @@ footer {
     footer .mb-medium {
       margin-bottom: 5px; }
     footer .social-wrapp {
-      text-align: center; }
-      footer .social-wrapp a {
-        color: #fff; } }
+      text-align: center; } }
 
 @media only screen and (max-width: 767px) {
   .homepage header::before {
@@ -1031,6 +1034,7 @@ body {
         .main.about.pricing .price-packages {
           border-radius: 2px;
           width: 90%;
+          max-width: 1200px;
           background-color: #fbfdff; }
           .main.about.pricing .price-packages .packages-header {
             background-color: #52b0ff;
@@ -1043,21 +1047,77 @@ body {
               font-family: "Segoe UI";
               font-size: 16px;
               font-weight: 600; }
+          .main.about.pricing .price-packages .nav-tabs li {
+            background-color: #b1dbff;
+            border-radius: 2px 2px 0 0;
+            width: 33%; }
+            .main.about.pricing .price-packages .nav-tabs li.active {
+              background-color: #52b0ff; }
+              .main.about.pricing .price-packages .nav-tabs li.active svg path {
+                fill: #fff; }
+            .main.about.pricing .price-packages .nav-tabs li a {
+              color: #fff;
+              background-color: transparent; }
+            .main.about.pricing .price-packages .nav-tabs li svg {
+              position: relative;
+              top: 2px;
+              margin-right: 5px; }
+              .main.about.pricing .price-packages .nav-tabs li svg path {
+                fill: #b1dbff; }
           .main.about.pricing .price-packages .packages-list {
             padding: 20px;
             box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25);
             text-align: center; }
+            .main.about.pricing .price-packages .packages-list .text {
+              text-align: center; }
+            .main.about.pricing .price-packages .packages-list .flights-count {
+              display: inline-block;
+              padding-left: 0;
+              list-style: none;
+              border: 1px solid #d5ecff;
+              border-radius: 2px; }
+              .main.about.pricing .price-packages .packages-list .flights-count li {
+                display: inline-block;
+                width: 58px;
+                height: 31px;
+                line-height: 31px;
+                border-radius: 2px;
+                color: #b1dbff;
+                font-family: "Segoe UI";
+                font-size: 18px;
+                font-weight: 600; }
+                .main.about.pricing .price-packages .packages-list .flights-count li.active {
+                  color: #feffff;
+                  background-color: #52b0ff; }
             .main.about.pricing .price-packages .packages-list .packages-wrap {
               display: inline-block;
               margin: 0 auto; }
+            .main.about.pricing .price-packages .packages-list .tab-content {
+              border-top: none; }
+            .main.about.pricing .price-packages .packages-list .tab-pane {
+              width: 100%;
+              max-width: 350px;
+              margin: 0 auto; }
+              .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head {
+                background-color: #52b0ff; }
+                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .package-info {
+                  border-color: #fff;
+                  color: #fff; }
+                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head svg path {
+                  fill: #fff; }
+                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .text {
+                  color: #fff; }
+                  .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .text svg path {
+                    fill: #fff; }
             .main.about.pricing .price-packages .packages-list .package {
               border: 1px solid #d5ecff;
               border-radius: 2px;
               position: relative;
               text-align: center;
-              padding-top: 30px;
               max-width: 350px;
               margin: 0 auto 20px; }
+              .main.about.pricing .price-packages .packages-list .package .package-head {
+                padding-top: 30px; }
               .main.about.pricing .price-packages .packages-list .package:last-child {
                 margin-right: 0; }
               .main.about.pricing .price-packages .packages-list .package .package-info {
@@ -1072,9 +1132,54 @@ body {
                 text-align: center;
                 padding-top: 0;
                 font-size: 10px;
-                line-height: 1; }
-              .main.about.pricing .price-packages .packages-list .package svg path {
-                fill: #b1dbff; }
+                line-height: 1;
+                z-index: 0; }
+                .main.about.pricing .price-packages .packages-list .package .package-info .popover {
+                  position: absolute;
+                  z-index: -1;
+                  display: none;
+                  padding: 5px;
+                  opacity: 0;
+                  transition: opacity 0.3s ease;
+                  top: auto;
+                  bottom: 17px;
+                  left: auto;
+                  right: -13px;
+                  background-color: white;
+                  width: 150px;
+                  border-radius: 4px;
+                  box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+                  .main.about.pricing .price-packages .packages-list .package .package-info .popover:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    right: 6px;
+                    bottom: -5px;
+                    border: 1px solid white;
+                    border-width: 12px 12px 0 12px;
+                    border-left-color: rgba(255, 255, 255, 0.01);
+                    border-right-color: rgba(255, 255, 255, 0.01); }
+                  .main.about.pricing .price-packages .packages-list .package .package-info .popover .text {
+                    color: #4e7ea9 !important;
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-align: left; }
+                    .main.about.pricing .price-packages .packages-list .package .package-info .popover .text span {
+                      display: block;
+                      color: #4e7ea9;
+                      font-weight: 400; }
+                .main.about.pricing .price-packages .packages-list .package .package-info:hover .popover, .main.about.pricing .price-packages .packages-list .package .package-info.active .popover {
+                  display: block;
+                  z-index: 1;
+                  opacity: 1; }
+              .main.about.pricing .price-packages .packages-list .package svg {
+                position: relative;
+                top: 2px;
+                margin-right: 5px; }
+                .main.about.pricing .price-packages .packages-list .package svg path {
+                  fill: #b1dbff; }
               .main.about.pricing .price-packages .packages-list .package h2 {
                 font-size: 16px;
                 font-weight: 600; }
@@ -1082,7 +1187,8 @@ body {
                 max-width: 80%;
                 width: auto;
                 margin: 0 auto 30px;
-                position: relative; }
+                position: relative;
+                text-align: center; }
                 .main.about.pricing .price-packages .packages-list .package .description strong {
                   font-weight: 600; }
                 .main.about.pricing .price-packages .packages-list .package .description:after {
@@ -1098,11 +1204,16 @@ body {
                   height: 0; }
               .main.about.pricing .price-packages .packages-list .package .package-price {
                 font-family: "Segoe UI";
-                font-size: 24px;
+                font-size: 36px;
                 font-weight: 600;
                 margin-bottom: 25px;
                 width: auto;
                 max-width: 100%;
+                text-align: center; }
+              .main.about.pricing .price-packages .packages-list .package .savings {
+                color: #b1dbff;
+                font-size: 14px;
+                font-weight: 600;
                 text-align: center; }
               .main.about.pricing .price-packages .packages-list .package .check-wrap {
                 position: absolute;
@@ -1138,6 +1249,8 @@ body {
             padding-bottom: 0; }
           .main.about.pricing .buttons .form-hidden, .main.about.pricing .buttons .btn.btn-primary.form-hidden {
             display: none; }
+          .main.about.pricing .buttons .to-faq {
+            transition: all 0.3s ease; }
         .main.about.pricing form {
           width: 300px;
           max-width: 80%;
@@ -1182,6 +1295,8 @@ body {
             display: none; }
           .main.about.pricing.faq .question.opened .answer {
             display: block; }
+        .main.about.pricing p {
+          width: initial; }
     .main.notes .date, .main.flight-list .date, .main.flight-protect .date {
       color: #bebfbf;
       font-family: "Segoe UI";
@@ -1280,7 +1395,8 @@ body {
       color: #52b0ff;
       font-weight: 600; }
       .main.flight-list .flights .blocks, .main.flight-protect .flights .blocks {
-        margin-bottom: -35px;
+        margin: 0 auto -35px;
+        max-width: 400px;
         padding-top: 15px;
         position: relative;
         height: 130px;
@@ -1334,7 +1450,7 @@ body {
         transform: translateX(0);
         position: relative;
         opacity: 1;
-        z-index: -1;
+        z-index: 0;
         transition: width 0.3s ease, opacity 0.3s ease; }
       .main.flight-list .flights .next, .main.flight-protect .flights .next {
         position: relative;
@@ -1344,7 +1460,7 @@ body {
         opacity: 0.75;
         width: 77%;
         min-width: 77%;
-        z-index: -2;
+        z-index: -1;
         transition: width 0.3s ease, opacity 0.3s ease; }
       .main.flight-list .flights .last, .main.flight-protect .flights .last {
         position: relative;
@@ -1354,7 +1470,7 @@ body {
         transform: translateX(0);
         width: 75%;
         min-width: 75%;
-        z-index: -3;
+        z-index: -2;
         transition: width 0.3s ease, opacity 0.3s ease; }
     .main.flight-list .notes, .main.flight-protect .notes {
       text-align: center; }
@@ -1415,8 +1531,6 @@ body {
         display: block;
         padding: 20px;
         margin: 0 auto 30px; }
-      .main.flight-protect .flights-list .text-dark, .main.flight-search .flights-list .text-dark {
-        font-size: 16px; }
       .main.flight-protect .flight, .main.flight-search .flight {
         position: relative;
         overflow: hidden;
@@ -1533,139 +1647,217 @@ body {
           border-bottom: 1px solid #e3edf6; }
         .main.flight-protect.solo .submit, .main.flight-search.solo .submit {
           margin-bottom: 15px; }
-    .main.flight-list .flights {
-      padding-top: 20px; }
-      .main.flight-list .flights .block .block-main-part {
-        padding-left: 0; }
-        .main.flight-list .flights .block .block-main-part .form-group {
-          width: 70%;
-          display: inline-block;
-          line-height: 40px;
-          padding-left: 10px; }
-          .main.flight-list .flights .block .block-main-part .form-group input {
-            width: 90%; }
-        .main.flight-list .flights .block .block-main-part .img-wrap {
-          float: right;
-          width: 30%;
-          color: #fff;
-          border-radius: 0 4px 4px 0; }
-          .main.flight-list .flights .block .block-main-part .img-wrap img {
-            transform: rotate(0); }
-    .main.flight-list .your-flights .flight .info-block {
-      float: left;
-      display: inline-block;
-      width: 80%; }
-    .main.flight-list .your-flights .flight .pick {
-      float: right;
-      display: inline-block;
-      width: 50px;
-      padding: 10px 12px;
-      margin-right: -15px; }
-      .main.flight-list .your-flights .flight .pick .img-wrap {
-        width: 100%; }
-      .main.flight-list .your-flights .flight .pick a {
-        pointer-events: none; }
-    .main.flight-list .your-flights .flight .attention {
-      display: none; }
-    .main.flight-list .your-flights .flight.not-protected .info-block {
-      width: 70%;
-      margin-left: 35px; }
-      .main.flight-list .your-flights .flight.not-protected .info-block .text-dark {
-        display: block; }
-    .main.flight-list .your-flights .flight.not-protected .pick {
-      padding: 20px 12px; }
-    .main.flight-list .your-flights .flight.not-protected .attention {
-      position: absolute;
-      display: block;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%); }
-    .main.flight-list .your-flights .flight.available-to-protect .pick a {
-      pointer-events: all; }
-    .main.flight-list input {
-      width: 100%;
-      border: 2px solid #d4dade;
-      border-width: 0 0 2px 0;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      background-position: 4px;
-      outline: none;
-      padding: 2px 0 0px 35px;
-      height: 30px;
-      font-size: 14px;
-      color: #52b0ff;
-      font-family: 'Segoe UI';
-      font-weight: 600; }
-      .main.flight-list input + svg {
+    .main.flight-list, .main.flight-search {
+      padding-bottom: 20px; }
+      .main.flight-list .flights, .main.flight-search .flights {
+        padding-top: 20px; }
+        .main.flight-list .flights .block .block-main-part, .main.flight-search .flights .block .block-main-part {
+          padding-left: 0; }
+          .main.flight-list .flights .block .block-main-part .form-group, .main.flight-search .flights .block .block-main-part .form-group {
+            width: 70%;
+            display: inline-block;
+            line-height: 40px;
+            padding-left: 10px; }
+            .main.flight-list .flights .block .block-main-part .form-group input, .main.flight-search .flights .block .block-main-part .form-group input {
+              width: 90%; }
+          .main.flight-list .flights .block .block-main-part .img-wrap, .main.flight-search .flights .block .block-main-part .img-wrap {
+            float: right;
+            width: 30%;
+            color: #fff;
+            border-radius: 0 4px 4px 0; }
+            .main.flight-list .flights .block .block-main-part .img-wrap img, .main.flight-search .flights .block .block-main-part .img-wrap img {
+              transform: rotate(0); }
+      .main.flight-list .flight .flight-info, .main.flight-search .flight .flight-info {
+        position: relative; }
+      .main.flight-list .flight .info-block, .main.flight-search .flight .info-block {
+        text-align: left;
+        float: left;
+        display: inline-block;
+        width: 80%; }
+      .main.flight-list .flight .pick, .main.flight-search .flight .pick {
+        float: right;
+        display: inline-block;
+        width: 50px;
+        padding: 29px 12px;
+        margin-right: -15px; }
+        .main.flight-list .flight .pick .img-wrap, .main.flight-search .flight .pick .img-wrap {
+          width: 100%; }
+        .main.flight-list .flight .pick a, .main.flight-search .flight .pick a {
+          pointer-events: none; }
+        .main.flight-list .flight .pick svg path, .main.flight-search .flight .pick svg path {
+          fill: #52b0ff; }
+        .main.flight-list .flight .pick .pick-text, .main.flight-search .flight .pick .pick-text {
+          display: none; }
+      .main.flight-list .flight .attention, .main.flight-search .flight .attention {
+        color: #FA948F;
+        display: none; }
+        .main.flight-list .flight .attention:hover, .main.flight-search .flight .attention:hover {
+          cursor: pointer; }
+      .main.flight-list .flight.not-protected .flight-info, .main.flight-search .flight.not-protected .flight-info {
+        padding-bottom: 15px !important; }
+      .main.flight-list .flight.not-protected .info-block, .main.flight-search .flight.not-protected .info-block {
+        width: 70%;
+        margin-left: 35px; }
+        .main.flight-list .flight.not-protected .info-block .text-dark, .main.flight-search .flight.not-protected .info-block .text-dark {
+          display: block; }
+      .main.flight-list .flight.not-protected .pick, .main.flight-search .flight.not-protected .pick {
+        padding: 40px 12px 20px; }
+      .main.flight-list .flight.not-protected .attention, .main.flight-search .flight.not-protected .attention {
         position: absolute;
+        display: block;
         left: 15px;
-        top: 15px; }
-        .main.flight-list input + svg path {
-          fill: #b1dbff; }
-      .main.flight-list input.flight-there + svg {
-        transform: rotate(45deg);
-        left: 3px; }
-      .main.flight-list input.flight-back + svg {
-        transform: rotate(-135deg);
-        left: 7px; }
-    .main.flight-list .your-flights {
-      padding-top: 20px; }
-    .main.flight-list .text-dark {
-      font-size: 16px; }
-    .main.flight-list .flight {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease; }
-      .main.flight-list .flight.opened .flight-top-shadow {
-        box-shadow: 0 3.6px 10px rgba(50, 115, 167, 0.25); }
-      .main.flight-list .flight.opened .flight-bottom-shadow {
-        box-shadow: 0 -3.6px 10px rgba(50, 115, 167, 0.25); }
-      .main.flight-list .flight.opened .flight-info {
-        border-bottom: 1px solid #e3edf6; }
-      .main.flight-list .flight .flight-top-shadow,
-      .main.flight-list .flight .flight-bottom-shadow {
-        transition: all 0.3s ease;
-        height: 4.6px;
+        top: 50%;
+        transform: translateY(-50%); }
+      .main.flight-list .flight.not-protected p.attention, .main.flight-search .flight.not-protected p.attention {
+        display: none;
+        cursor: initial;
+        left: 50px;
+        bottom: -5px;
+        top: auto;
+        transform: translateY(0); }
+      .main.flight-list .flight.available-to-protect .pick, .main.flight-search .flight.available-to-protect .pick {
+        background-color: #52b0ff;
+        color: #fff;
+        padding: 10px 12px; }
+        .main.flight-list .flight.available-to-protect .pick a, .main.flight-search .flight.available-to-protect .pick a {
+          pointer-events: all;
+          color: #fff; }
+        .main.flight-list .flight.available-to-protect .pick .pick-text, .main.flight-search .flight.available-to-protect .pick .pick-text {
+          display: initial; }
+        .main.flight-list .flight.available-to-protect .pick:hover, .main.flight-search .flight.available-to-protect .pick:hover {
+          background-color: #39a4ff; }
+          .main.flight-list .flight.available-to-protect .pick:hover a, .main.flight-search .flight.available-to-protect .pick:hover a {
+            text-decoration: none; }
+        .main.flight-list .flight.available-to-protect .pick svg path, .main.flight-search .flight.available-to-protect .pick svg path {
+          fill: #fff; }
+      .main.flight-list input, .main.flight-search input {
         width: 100%;
-        position: absolute;
-        box-shadow: none; }
-      .main.flight-list .flight .flight-top-shadow {
-        top: -5.6px; }
-      .main.flight-list .flight .flight-bottom-shadow {
-        bottom: -5.6px; }
-      .main.flight-list .flight .flight-info {
-        padding: 0 15px; }
-        .main.flight-list .flight .flight-info .text {
-          font-size: 16px; }
-        .main.flight-list .flight .flight-info .description {
-          text-align: left; }
-      .main.flight-list .flight .flight-book {
-        padding: 10px 15px;
-        text-align: center; }
-        .main.flight-list .flight .flight-book h5 {
-          text-align: left; }
-        .main.flight-list .flight .flight-book table {
+        border: 2px solid #d4dade;
+        border-width: 0 0 2px 0;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 4px;
+        outline: none;
+        padding: 2px 0 0px 35px;
+        height: 30px;
+        font-size: 14px;
+        color: #52b0ff;
+        font-family: 'Segoe UI';
+        font-weight: 600; }
+        .main.flight-list input + svg, .main.flight-search input + svg {
+          position: absolute;
+          left: 15px;
+          top: 15px; }
+          .main.flight-list input + svg path, .main.flight-search input + svg path {
+            fill: #b1dbff; }
+        .main.flight-list input.flight-there + svg, .main.flight-search input.flight-there + svg {
+          transform: rotate(45deg);
+          left: 3px; }
+        .main.flight-list input.flight-back + svg, .main.flight-search input.flight-back + svg {
+          transform: rotate(-135deg);
+          left: 7px; }
+      .main.flight-list .your-flights, .main.flight-search .your-flights {
+        padding-top: 20px; }
+      .main.flight-list .text-dark, .main.flight-search .text-dark {
+        font-size: 16px; }
+      .main.flight-list .flight, .main.flight-search .flight {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease; }
+        .main.flight-list .flight.opened .flight-top-shadow, .main.flight-search .flight.opened .flight-top-shadow {
+          box-shadow: 0 3.6px 10px rgba(50, 115, 167, 0.25); }
+        .main.flight-list .flight.opened .flight-bottom-shadow, .main.flight-search .flight.opened .flight-bottom-shadow {
+          box-shadow: 0 -3.6px 10px rgba(50, 115, 167, 0.25); }
+        .main.flight-list .flight.opened .flight-info, .main.flight-search .flight.opened .flight-info {
+          border-bottom: 1px solid #e3edf6; }
+        .main.flight-list .flight .flight-top-shadow,
+        .main.flight-list .flight .flight-bottom-shadow, .main.flight-search .flight .flight-top-shadow,
+        .main.flight-search .flight .flight-bottom-shadow {
+          transition: all 0.3s ease;
+          height: 4.6px;
           width: 100%;
-          text-align: left; }
-          .main.flight-list .flight .flight-book table th,
-          .main.flight-list .flight .flight-book table td {
-            color: #77a2c5;
-            font-family: "Open Sans";
-            font-weight: 400;
-            line-height: 24px; }
-          .main.flight-list .flight .flight-book table th {
-            font-size: 12px; }
-          .main.flight-list .flight .flight-book table td {
-            font-size: 18px; }
-            .main.flight-list .flight .flight-book table td:first-child {
-              width: 45%; }
-      .main.flight-list .flight .submit {
-        margin-top: 20px;
-        width: 100%; }
-        .main.flight-list .flight .submit svg {
-          position: relative;
-          top: 4px;
-          margin-right: 5px; }
+          position: absolute;
+          box-shadow: none; }
+        .main.flight-list .flight .flight-top-shadow, .main.flight-search .flight .flight-top-shadow {
+          top: -5.6px; }
+        .main.flight-list .flight .flight-bottom-shadow, .main.flight-search .flight .flight-bottom-shadow {
+          bottom: -5.6px; }
+        .main.flight-list .flight .flight-info, .main.flight-search .flight .flight-info {
+          padding: 0 15px; }
+          .main.flight-list .flight .flight-info .text, .main.flight-search .flight .flight-info .text {
+            font-size: 16px; }
+          .main.flight-list .flight .flight-info .description, .main.flight-search .flight .flight-info .description {
+            text-align: left; }
+        .main.flight-list .flight .flight-book, .main.flight-search .flight .flight-book {
+          padding: 10px 15px;
+          text-align: center; }
+          .main.flight-list .flight .flight-book h5, .main.flight-search .flight .flight-book h5 {
+            text-align: left; }
+          .main.flight-list .flight .flight-book table, .main.flight-search .flight .flight-book table {
+            width: 100%;
+            text-align: left; }
+            .main.flight-list .flight .flight-book table th,
+            .main.flight-list .flight .flight-book table td, .main.flight-search .flight .flight-book table th,
+            .main.flight-search .flight .flight-book table td {
+              color: #77a2c5;
+              font-family: "Open Sans";
+              font-weight: 400;
+              line-height: 24px; }
+            .main.flight-list .flight .flight-book table th, .main.flight-search .flight .flight-book table th {
+              font-size: 12px; }
+            .main.flight-list .flight .flight-book table td, .main.flight-search .flight .flight-book table td {
+              font-size: 18px; }
+              .main.flight-list .flight .flight-book table td:first-child, .main.flight-search .flight .flight-book table td:first-child {
+                width: 45%; }
+        .main.flight-list .flight .submit, .main.flight-search .flight .submit {
+          margin: 20px auto 15px;
+          width: 100%; }
+          .main.flight-list .flight .submit svg, .main.flight-search .flight .submit svg {
+            position: relative;
+            top: 4px;
+            margin-right: 5px; }
+    .main.flight-search .flights-list, .main.flight-list .flights-list {
+      background-color: #FFF;
+      box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+      .main.flight-search .flights-list .headerText, .main.flight-list .flights-list .headerText {
+        padding: 15px 20px 20px;
+        text-align: left; }
+        .main.flight-search .flights-list .headerText .text-dark, .main.flight-list .flights-list .headerText .text-dark {
+          font-size: 16px;
+          margin-bottom: 0; }
+      .main.flight-search .flights-list .description, .main.flight-list .flights-list .description {
+        margin-top: 5px;
+        text-align: left; }
+      .main.flight-search .flights-list .note, .main.flight-list .flights-list .note {
+        background-color: #f5faff;
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: 0; }
+        .main.flight-search .flights-list .note .flight, .main.flight-list .flights-list .note .flight {
+          border-bottom: 1px dashed #e3edf6; }
+          .main.flight-search .flights-list .note .flight .text, .main.flight-list .flights-list .note .flight .text {
+            font-size: 14px; }
+            .main.flight-search .flights-list .note .flight .text .text-dark, .main.flight-list .flights-list .note .flight .text .text-dark {
+              display: initial; }
+          .main.flight-search .flights-list .note .flight .description, .main.flight-list .flights-list .note .flight .description {
+            font-size: 12px;
+            margin-bottom: 5px; }
+          .main.flight-search .flights-list .note .flight .flight-info, .main.flight-list .flights-list .note .flight .flight-info {
+            padding: 10px 15px !important; }
+            .main.flight-search .flights-list .note .flight .flight-info .info-block, .main.flight-list .flights-list .note .flight .flight-info .info-block {
+              width: 100%;
+              padding-left: 35px;
+              margin-left: 0; }
+          .main.flight-search .flights-list .note .flight .close, .main.flight-list .flights-list .note .flight .close {
+            font-size: 26px;
+            top: 50%;
+            transform: translateY(-50%);
+            float: none;
+            font-weight: 300;
+            right: 10px;
+            position: absolute;
+            opacity: 1;
+            color: #bebfbf; }
     .main.not-found {
       height: 60vh; }
       .main.not-found .navbar {
@@ -1832,7 +2024,7 @@ body {
           margin-bottom: 30px; }
       .main.about.pricing .buttons button, .main.about.pricing .buttons .btn.btn-primary {
         display: inline-block;
-        margin: 0 10px; }
+        margin: 0 10px 20px; }
     .main.about.pricing form {
       width: 100%;
       max-width: 100%;
@@ -1866,7 +2058,9 @@ body {
     .main.login.done-page {
       padding-top: 250px; }
     .main.login.contacts {
-      background: url(../img/about-back.png) 15% -5% no-repeat; } }
+      background: url(../img/about-back.png) 15% -5% no-repeat; }
+  .main.flight-list .your-flights .flight.not-protected p.attention {
+    display: block; } }
 
 @media (min-width: 992px) {
   .main.homepage .video-promo {
@@ -1930,12 +2124,23 @@ body {
       text-align: center; }
   .main.about.pricing .headerText .description {
     width: 400px; }
-  .main.about.pricing .price-packages .packages-list .package {
+  .main.about.pricing .nav-tabs {
+    display: none; }
+  .main.about.pricing .price-packages .packages-list .tab-pane {
     display: inline-block;
-    margin: 0 20px 20px 0;
-    width: 31%; }
-    .main.about.pricing .price-packages .packages-list .package p {
-      text-align: center; }
+    opacity: 1;
+    width: 33%;
+    max-width: initial; }
+    .main.about.pricing .price-packages .packages-list .tab-pane .package {
+      width: 100%; }
+      .main.about.pricing .price-packages .packages-list .tab-pane .package p {
+        text-align: center; }
+  .main.about.pricing .submit {
+    width: 32%;
+    max-width: 350px; }
+  .main.about.pricing form .text-wrapp label {
+    position: relative;
+    top: -10px; }
   .main.flight-search .note {
     max-width: initial; }
     .main.flight-search .note .form-group {
@@ -1948,7 +2153,35 @@ body {
       width: 19%;
       margin-top: -5px; }
     .main.flight-search .note.flights-list {
-      min-height: 147px; } }
+      min-height: 147px; }
+  .main.flight-list .flights .blocks, .main.flight-protect .flights .blocks {
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: #FFF;
+    box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+    .main.flight-list .flights .blocks .block, .main.flight-protect .flights .blocks .block {
+      width: 26%;
+      max-width: 26%;
+      min-width: 26%;
+      position: relative;
+      transform: translateX(0);
+      top: 0;
+      left: 0;
+      margin-bottom: 0;
+      box-shadow: none;
+      opacity: 1;
+      z-index: 0; }
+      .main.flight-list .flights .blocks .block .form-group, .main.flight-protect .flights .blocks .block .form-group {
+        width: 100%; }
+      .main.flight-list .flights .blocks .block .img-wrap, .main.flight-protect .flights .blocks .block .img-wrap {
+        display: none; }
+    .main.flight-list .flights .blocks .btn, .main.flight-protect .flights .blocks .btn {
+      display: inline-block;
+      width: 20%;
+      height: 55px;
+      float: right; } }
 
 @media only screen and (min-width: 1100px) {
   .main.login.contacts {
