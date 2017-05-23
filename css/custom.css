@@ -27,21 +27,24 @@
   font-weight: 600;
   text-transform: uppercase; }
 
-.flight-protect ::-webkit-input-placeholder, .tab-content ::-webkit-input-placeholder, .settings ::-webkit-input-placeholder, .contacts ::-webkit-input-placeholder {
+.flight-protect ::-webkit-input-placeholder, .tab-content ::-webkit-input-placeholder, .settings ::-webkit-input-placeholder, .contacts ::-webkit-input-placeholder, .pricing ::-webkit-input-placeholder, .flight-list ::-webkit-input-placeholder {
   font-size: 14px;
   text-transform: none; }
 
-.flight-protect ::-moz-placeholder, .tab-content ::-moz-placeholder, .settings ::-moz-placeholder, .contacts ::-moz-placeholder {
+.flight-protect ::-moz-placeholder, .tab-content ::-moz-placeholder, .settings ::-moz-placeholder, .contacts ::-moz-placeholder, .pricing ::-moz-placeholder, .flight-list ::-moz-placeholder {
   font-size: 14px;
   text-transform: none; }
 
-.flight-protect :-ms-input-placeholder, .tab-content :-ms-input-placeholder, .settings :-ms-input-placeholder, .contacts :-ms-input-placeholder {
+.flight-protect :-ms-input-placeholder, .tab-content :-ms-input-placeholder, .settings :-ms-input-placeholder, .contacts :-ms-input-placeholder, .pricing :-ms-input-placeholder, .flight-list :-ms-input-placeholder {
   font-size: 14px;
   text-transform: none; }
 
-.flight-protect :-moz-placeholder, .tab-content :-moz-placeholder, .settings :-moz-placeholder, .contacts :-moz-placeholder {
+.flight-protect :-moz-placeholder, .tab-content :-moz-placeholder, .settings :-moz-placeholder, .contacts :-moz-placeholder, .pricing :-moz-placeholder, .flight-list :-moz-placeholder {
   font-size: 14px;
   text-transform: none; }
+
+.h-4em {
+  height: 4em; }
 
 *:focus {
   outline: none !important; }
@@ -113,7 +116,6 @@ button {
 
 .btn-primary {
   background-color: #52b0ff;
-  background-image: linear-gradient(180deg, #88c9ff 0%, #43aaff 100%);
   box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
   .btn-primary svg path {
     fill: #fff; }
@@ -123,7 +125,7 @@ button {
   background-image: linear-gradient(180deg, #88c9ff 0%, #43aaff 100%); }
 
 .btn-transparent {
-  background-color: none;
+  background: none;
   border: 2px solid #fff; }
 
 .btn-login {
@@ -200,6 +202,16 @@ p {
   .tab-content .tab-pane {
     width: 70%;
     margin: 0 auto; }
+
+.ghinda-video-player.simpledark {
+  float: none !important;
+  display: inline-block;
+  width: 60%;
+  max-width: 90%;
+  height: auto; }
+  .ghinda-video-player.simpledark video {
+    float: none !important;
+    width: 100%; }
 
 .homepage header {
   background-color: #fff; }
@@ -582,7 +594,9 @@ footer {
     footer .mb-medium {
       margin-bottom: 5px; }
     footer .social-wrapp {
-      text-align: center; } }
+      text-align: center; }
+      footer .social-wrapp a {
+        color: #fff; } }
 
 @media only screen and (max-width: 767px) {
   .homepage header::before {
@@ -608,7 +622,6 @@ body {
 
 @media (min-width: 320px) {
   .main {
-    display: table;
     width: 100%;
     min-width: 320px;
     background-color: #f6fbff;
@@ -657,8 +670,6 @@ body {
       border-radius: 4px;
       box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
     .main.homepage .video-promo {
-      /*                color: #fff;
-                                background-color: $maintextColor;*/
       padding: 35px 0;
       text-align: center; }
       .main.homepage .video-promo .container-fluid, .main.homepage .video-promo [class^='col-'] {
@@ -671,16 +682,37 @@ body {
         width: 90%;
         margin: 0 auto;
         padding-bottom: 30px; }
+      .main.homepage .video-promo ul {
+        width: 90%;
+        max-width: 470px;
+        margin: 0 auto 40px;
+        text-align: left; }
+        .main.homepage .video-promo ul li {
+          font-size: 16px; }
       .main.homepage .video-promo .video-wrap {
-        max-width: 100%; }
+        max-width: 95%;
+        margin: 0 auto; }
         .main.homepage .video-promo .video-wrap .mejs__container {
-          width: 95% !important;
           max-width: 100%;
           height: auto !important;
-          min-height: 250px;
-          margin: 0 auto; }
+          min-height: 250px; }
+          .main.homepage .video-promo .video-wrap .mejs__container video {
+            height: 100%; }
           .main.homepage .video-promo .video-wrap .mejs__container.clean .mejs__controls {
             display: none; }
+          .main.homepage .video-promo .video-wrap .mejs__container.clean .mejs__overlay-button {
+            background: url("../img/play_spheres.png") center/130% no-repeat; }
+        .main.homepage .video-promo .video-wrap .mejs__layers .mejs__overlay.mejs__layer {
+          width: 100% !important;
+          height: 100% !important; }
+          .main.homepage .video-promo .video-wrap .mejs__layers .mejs__overlay.mejs__layer .mejs__overlay-loading {
+            width: 170px;
+            height: 170px;
+            margin: -85px 0 0 -85px; }
+            .main.homepage .video-promo .video-wrap .mejs__layers .mejs__overlay.mejs__layer .mejs__overlay-loading .mejs__overlay-loading-bg-img {
+              width: 100%;
+              height: 100%;
+              background: url("../img/play_spheres.png") center/100% no-repeat; }
         .main.homepage .video-promo .video-wrap .mejs__overlay.mejs__layer.mejs__overlay-play {
           height: 100% !important;
           width: 100% !important; }
@@ -692,7 +724,10 @@ body {
         .main.homepage .video-promo .video-wrap .mejs__overlay-button {
           position: relative;
           background: none;
-          /*background-image: url("https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.1.1/mejs-controls.svg");*/ }
+          /*background-image: url("https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.1.1/mejs-controls.svg");*/
+          width: 130px;
+          height: 130px;
+          margin: -65px 0 0 -65px; }
           .main.homepage .video-promo .video-wrap .mejs__overlay-button:before {
             content: '';
             display: block;
@@ -700,8 +735,8 @@ body {
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 41px;
-            height: 41px;
+            width: 79px;
+            height: 79px;
             border-radius: 50%;
             background-color: #fff; }
           .main.homepage .video-promo .video-wrap .mejs__overlay-button:after {
@@ -714,7 +749,7 @@ body {
             width: 0;
             height: 0;
             border: 11px solid #5fb7ff;
-            border-width: 5.5px 0 5.5px 8px;
+            border-width: 8.5px 0 8.5px 12px;
             border-top-color: rgba(255, 255, 255, 0.01);
             border-bottom-color: rgba(255, 255, 255, 0.01); }
         .main.homepage .video-promo .video-wrap .mejs__overlay-loading-bg-img {
@@ -918,6 +953,8 @@ body {
             position: absolute;
             left: 0;
             top: 5px; }
+            .main.login.contacts .description svg path {
+              fill: #52b0ff; }
           .main.login.contacts .description:last-child svg {
             left: 2px; }
         .main.login.contacts .loginForm {
@@ -988,7 +1025,9 @@ body {
             margin-bottom: 40px; }
           .main.about.pricing .headerText .description {
             font-size: 16px;
-            width: 100%; }
+            width: 80%;
+            margin: 0 auto;
+            text-align: center; }
         .main.about.pricing .price-packages {
           border-radius: 2px;
           width: 90%;
@@ -1006,14 +1045,21 @@ body {
               font-weight: 600; }
           .main.about.pricing .price-packages .packages-list {
             padding: 20px;
-            box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+            box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25);
+            text-align: center; }
+            .main.about.pricing .price-packages .packages-list .packages-wrap {
+              display: inline-block;
+              margin: 0 auto; }
             .main.about.pricing .price-packages .packages-list .package {
               border: 1px solid #d5ecff;
               border-radius: 2px;
-              margin-bottom: 20px;
               position: relative;
               text-align: center;
-              padding-top: 30px; }
+              padding-top: 30px;
+              max-width: 350px;
+              margin: 0 auto 20px; }
+              .main.about.pricing .price-packages .packages-list .package:last-child {
+                margin-right: 0; }
               .main.about.pricing .price-packages .packages-list .package .package-info {
                 position: absolute;
                 width: 13px;
@@ -1033,8 +1079,9 @@ body {
                 font-size: 16px;
                 font-weight: 600; }
               .main.about.pricing .price-packages .packages-list .package .description {
-                width: 80%;
-                margin-bottom: 30px;
+                max-width: 80%;
+                width: auto;
+                margin: 0 auto 30px;
                 position: relative; }
                 .main.about.pricing .price-packages .packages-list .package .description strong {
                   font-weight: 600; }
@@ -1053,7 +1100,10 @@ body {
                 font-family: "Segoe UI";
                 font-size: 24px;
                 font-weight: 600;
-                margin-bottom: 25px; }
+                margin-bottom: 25px;
+                width: auto;
+                max-width: 100%;
+                text-align: center; }
               .main.about.pricing .price-packages .packages-list .package .check-wrap {
                 position: absolute;
                 bottom: -15px;
@@ -1078,6 +1128,46 @@ body {
                 border: 2px solid #52b0ff; }
                 .main.about.pricing .price-packages .packages-list .package.chosen .check-wrap {
                   display: block; }
+            .main.about.pricing .price-packages .packages-list .submit {
+              margin-bottom: 30px; }
+        .main.about.pricing .buttons {
+          max-width: 80%;
+          text-align: center;
+          margin: 0 auto; }
+          .main.about.pricing .buttons .headerText {
+            padding-bottom: 0; }
+          .main.about.pricing .buttons .form-hidden, .main.about.pricing .buttons .btn.btn-primary.form-hidden {
+            display: none; }
+        .main.about.pricing form {
+          width: 300px;
+          max-width: 80%;
+          margin: 30px auto 0;
+          text-align: left; }
+          .main.about.pricing form label {
+            color: #77a2c4;
+            font-family: "Segoe UI";
+            font-size: 16px;
+            font-weight: 400;
+            display: block; }
+          .main.about.pricing form input, .main.about.pricing form textarea {
+            background: transparent;
+            border-width: 0 0 2px 0;
+            border-color: #d4dade;
+            width: 100%; }
+          .main.about.pricing form .btn-wrap {
+            text-align: center; }
+        .main.about.pricing .btn-transparent {
+          border-color: #52b0ff;
+          border-image-source: -webkit-linear-gradient(top, #52B0FF 0%, #9AD1FF 100%);
+          border-image-source: -moz-linear-gradient(top, #52B0FF 0%, #9AD1FF 100%);
+          border-image-source: -o-linear-gradient(top, #52B0FF 0%, #9AD1FF 100%);
+          border-image-source: linear-gradient(to bottom, #52B0FF 0%, #9AD1FF 100%);
+          border-image-slice: 1 1 1 1;
+          border-image-width: 2px;
+          border-image-repeat: stretch;
+          line-height: 1; }
+          .main.about.pricing .btn-transparent:hover, .main.about.pricing .btn-transparent:active {
+            color: #52b0ff; }
         .main.about.pricing.faq {
           background: none;
           margin-top: 0; }
@@ -1313,74 +1403,86 @@ body {
     .main.flight-list .note .description, .main.flight-protect .note .description {
       text-align: right;
       padding-right: 10px; }
-    .main.flight-protect {
+    .main.flight-protect, .main.flight-search {
       text-align: center; }
-      .main.flight-protect .flight {
+      .main.flight-protect .headerText, .main.flight-search .headerText {
+        margin: 25px auto; }
+      .main.flight-protect .note, .main.flight-search .note {
+        background-color: white;
+        border-radius: 2px;
+        box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25);
+        max-width: 400px;
+        display: block;
+        padding: 20px;
+        margin: 0 auto 30px; }
+      .main.flight-protect .flights-list .text-dark, .main.flight-search .flights-list .text-dark {
+        font-size: 16px; }
+      .main.flight-protect .flight, .main.flight-search .flight {
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease; }
-        .main.flight-protect .flight.opened .flight-top-shadow {
+        .main.flight-protect .flight.opened .flight-top-shadow, .main.flight-search .flight.opened .flight-top-shadow {
           box-shadow: 0 3.6px 10px rgba(50, 115, 167, 0.25); }
-        .main.flight-protect .flight.opened .flight-bottom-shadow {
+        .main.flight-protect .flight.opened .flight-bottom-shadow, .main.flight-search .flight.opened .flight-bottom-shadow {
           box-shadow: 0 -3.6px 10px rgba(50, 115, 167, 0.25); }
-        .main.flight-protect .flight.opened .flight-info {
+        .main.flight-protect .flight.opened .flight-info, .main.flight-search .flight.opened .flight-info {
           border-bottom: 1px solid #e3edf6; }
         .main.flight-protect .flight .flight-top-shadow,
-        .main.flight-protect .flight .flight-bottom-shadow {
+        .main.flight-protect .flight .flight-bottom-shadow, .main.flight-search .flight .flight-top-shadow,
+        .main.flight-search .flight .flight-bottom-shadow {
           transition: all 0.3s ease;
           height: 4.6px;
           width: 100%;
           position: absolute;
           box-shadow: none; }
-        .main.flight-protect .flight .flight-top-shadow {
+        .main.flight-protect .flight .flight-top-shadow, .main.flight-search .flight .flight-top-shadow {
           top: -5.6px; }
-        .main.flight-protect .flight .flight-bottom-shadow {
+        .main.flight-protect .flight .flight-bottom-shadow, .main.flight-search .flight .flight-bottom-shadow {
           bottom: -5.6px; }
-        .main.flight-protect .flight .flight-info {
+        .main.flight-protect .flight .flight-info, .main.flight-search .flight .flight-info {
           padding: 0 15px; }
-          .main.flight-protect .flight .flight-info .text {
+          .main.flight-protect .flight .flight-info .text, .main.flight-search .flight .flight-info .text {
             font-size: 16px; }
-        .main.flight-protect .flight .flight-book {
+        .main.flight-protect .flight .flight-book, .main.flight-search .flight .flight-book {
           padding: 10px 15px;
           text-align: center; }
-          .main.flight-protect .flight .flight-book h5 {
+          .main.flight-protect .flight .flight-book h5, .main.flight-search .flight .flight-book h5 {
             text-align: left; }
-          .main.flight-protect .flight .flight-book table {
+          .main.flight-protect .flight .flight-book table, .main.flight-search .flight .flight-book table {
             width: 100%;
             text-align: left; }
             .main.flight-protect .flight .flight-book table th,
-            .main.flight-protect .flight .flight-book table td {
+            .main.flight-protect .flight .flight-book table td, .main.flight-search .flight .flight-book table th,
+            .main.flight-search .flight .flight-book table td {
               color: #77a2c5;
               font-family: "Open Sans";
               font-weight: 400;
               line-height: 24px; }
-            .main.flight-protect .flight .flight-book table th {
+            .main.flight-protect .flight .flight-book table th, .main.flight-search .flight .flight-book table th {
               font-size: 12px; }
-            .main.flight-protect .flight .flight-book table td {
+            .main.flight-protect .flight .flight-book table td, .main.flight-search .flight .flight-book table td {
               font-size: 18px; }
-              .main.flight-protect .flight .flight-book table td:first-child {
+              .main.flight-protect .flight .flight-book table td:first-child, .main.flight-search .flight .flight-book table td:first-child {
                 width: 45%; }
-        .main.flight-protect .flight .submit {
+        .main.flight-protect .flight .submit, .main.flight-search .flight .submit {
           margin-top: 20px;
           width: 100%; }
-          .main.flight-protect .flight .submit svg {
+          .main.flight-protect .flight .submit svg, .main.flight-search .flight .submit svg {
             position: relative;
             top: 4px;
             margin-right: 5px; }
-      .main.flight-protect .flight-search-forms {
-        padding-top: 30px;
+      .main.flight-protect .flight-search-forms, .main.flight-search .flight-search-forms {
         margin: 0 auto;
-        margin-bottom: 50px;
         text-align: center;
         width: 90%; }
-        .main.flight-protect .flight-search-forms p {
+        .main.flight-protect .flight-search-forms p, .main.flight-search .flight-search-forms p {
           font-weight: 600;
           margin-bottom: 20px; }
-        .main.flight-protect .flight-search-forms .form-group {
+        .main.flight-protect .flight-search-forms .form-group, .main.flight-search .flight-search-forms .form-group {
           position: relative;
-          width: 70%;
+          width: 80%;
           margin: 15px auto 20px; }
-        .main.flight-protect .flight-search-forms input {
+        .main.flight-protect .flight-search-forms input, .main.flight-search .flight-search-forms input {
           width: 100%;
           border: 2px solid #d4dade;
           border-width: 0 0 2px 0;
@@ -1394,47 +1496,176 @@ body {
           color: #52b0ff;
           font-family: 'Segoe UI';
           font-weight: 600; }
-          .main.flight-protect .flight-search-forms input + svg {
+          .main.flight-protect .flight-search-forms input + svg, .main.flight-search .flight-search-forms input + svg {
             position: absolute;
             left: 5px;
             top: 3px; }
-            .main.flight-protect .flight-search-forms input + svg path {
+            .main.flight-protect .flight-search-forms input + svg path, .main.flight-search .flight-search-forms input + svg path {
               fill: #b1dbff; }
-          .main.flight-protect .flight-search-forms input.flight-there + svg {
+          .main.flight-protect .flight-search-forms input.flight-there + svg, .main.flight-search .flight-search-forms input.flight-there + svg {
             transform: rotate(45deg);
             left: 3px; }
-          .main.flight-protect .flight-search-forms input.flight-back + svg {
+          .main.flight-protect .flight-search-forms input.flight-back + svg, .main.flight-search .flight-search-forms input.flight-back + svg {
             transform: rotate(-135deg);
             left: 7px; }
-        .main.flight-protect .flight-search-forms .submit {
+        .main.flight-protect .flight-search-forms .submit, .main.flight-search .flight-search-forms .submit {
           margin-top: 15px; }
-          .main.flight-protect .flight-search-forms .submit svg {
+          .main.flight-protect .flight-search-forms .submit svg, .main.flight-search .flight-search-forms .submit svg {
             transform: rotate(45deg);
             margin-right: 10px;
             position: relative;
             top: 3px; }
-      .main.flight-protect .note {
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-bottom: 30px; }
-      .main.flight-protect .flight-info .text {
+      .main.flight-protect .flight-info .text, .main.flight-search .flight-info .text {
         margin-bottom: 5px; }
-      .main.flight-protect .flight-info .description {
+      .main.flight-protect .flight-info .description, .main.flight-search .flight-info .description {
         font-family: "Open Sans", sans-serif;
         font-size: 12px;
         text-align: left; }
-        .main.flight-protect .flight-info .description .time {
+        .main.flight-protect .flight-info .description .time, .main.flight-search .flight-info .description .time {
           margin-right: 5px; }
-          .main.flight-protect .flight-info .description .time:last-child {
+          .main.flight-protect .flight-info .description .time:last-child, .main.flight-search .flight-info .description .time:last-child {
             margin-left: 5px; }
-      .main.flight-protect.solo {
+      .main.flight-protect.solo, .main.flight-search.solo {
         /*                .flight-book {
                                     display: block;
                                 }*/ }
-        .main.flight-protect.solo .flight-info {
+        .main.flight-protect.solo .flight-info, .main.flight-search.solo .flight-info {
           border-bottom: 1px solid #e3edf6; }
-        .main.flight-protect.solo .submit {
+        .main.flight-protect.solo .submit, .main.flight-search.solo .submit {
           margin-bottom: 15px; }
+    .main.flight-list .flights {
+      padding-top: 20px; }
+      .main.flight-list .flights .block .block-main-part {
+        padding-left: 0; }
+        .main.flight-list .flights .block .block-main-part .form-group {
+          width: 70%;
+          display: inline-block;
+          line-height: 40px;
+          padding-left: 10px; }
+          .main.flight-list .flights .block .block-main-part .form-group input {
+            width: 90%; }
+        .main.flight-list .flights .block .block-main-part .img-wrap {
+          float: right;
+          width: 30%;
+          color: #fff;
+          border-radius: 0 4px 4px 0; }
+          .main.flight-list .flights .block .block-main-part .img-wrap img {
+            transform: rotate(0); }
+    .main.flight-list .your-flights .flight .info-block {
+      float: left;
+      display: inline-block;
+      width: 80%; }
+    .main.flight-list .your-flights .flight .pick {
+      float: right;
+      display: inline-block;
+      width: 50px;
+      padding: 10px 12px;
+      margin-right: -15px; }
+      .main.flight-list .your-flights .flight .pick .img-wrap {
+        width: 100%; }
+      .main.flight-list .your-flights .flight .pick a {
+        pointer-events: none; }
+    .main.flight-list .your-flights .flight .attention {
+      display: none; }
+    .main.flight-list .your-flights .flight.not-protected .info-block {
+      width: 70%;
+      margin-left: 35px; }
+      .main.flight-list .your-flights .flight.not-protected .info-block .text-dark {
+        display: block; }
+    .main.flight-list .your-flights .flight.not-protected .pick {
+      padding: 20px 12px; }
+    .main.flight-list .your-flights .flight.not-protected .attention {
+      position: absolute;
+      display: block;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%); }
+    .main.flight-list .your-flights .flight.available-to-protect .pick a {
+      pointer-events: all; }
+    .main.flight-list input {
+      width: 100%;
+      border: 2px solid #d4dade;
+      border-width: 0 0 2px 0;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: 4px;
+      outline: none;
+      padding: 2px 0 0px 35px;
+      height: 30px;
+      font-size: 14px;
+      color: #52b0ff;
+      font-family: 'Segoe UI';
+      font-weight: 600; }
+      .main.flight-list input + svg {
+        position: absolute;
+        left: 15px;
+        top: 15px; }
+        .main.flight-list input + svg path {
+          fill: #b1dbff; }
+      .main.flight-list input.flight-there + svg {
+        transform: rotate(45deg);
+        left: 3px; }
+      .main.flight-list input.flight-back + svg {
+        transform: rotate(-135deg);
+        left: 7px; }
+    .main.flight-list .your-flights {
+      padding-top: 20px; }
+    .main.flight-list .text-dark {
+      font-size: 16px; }
+    .main.flight-list .flight {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease; }
+      .main.flight-list .flight.opened .flight-top-shadow {
+        box-shadow: 0 3.6px 10px rgba(50, 115, 167, 0.25); }
+      .main.flight-list .flight.opened .flight-bottom-shadow {
+        box-shadow: 0 -3.6px 10px rgba(50, 115, 167, 0.25); }
+      .main.flight-list .flight.opened .flight-info {
+        border-bottom: 1px solid #e3edf6; }
+      .main.flight-list .flight .flight-top-shadow,
+      .main.flight-list .flight .flight-bottom-shadow {
+        transition: all 0.3s ease;
+        height: 4.6px;
+        width: 100%;
+        position: absolute;
+        box-shadow: none; }
+      .main.flight-list .flight .flight-top-shadow {
+        top: -5.6px; }
+      .main.flight-list .flight .flight-bottom-shadow {
+        bottom: -5.6px; }
+      .main.flight-list .flight .flight-info {
+        padding: 0 15px; }
+        .main.flight-list .flight .flight-info .text {
+          font-size: 16px; }
+        .main.flight-list .flight .flight-info .description {
+          text-align: left; }
+      .main.flight-list .flight .flight-book {
+        padding: 10px 15px;
+        text-align: center; }
+        .main.flight-list .flight .flight-book h5 {
+          text-align: left; }
+        .main.flight-list .flight .flight-book table {
+          width: 100%;
+          text-align: left; }
+          .main.flight-list .flight .flight-book table th,
+          .main.flight-list .flight .flight-book table td {
+            color: #77a2c5;
+            font-family: "Open Sans";
+            font-weight: 400;
+            line-height: 24px; }
+          .main.flight-list .flight .flight-book table th {
+            font-size: 12px; }
+          .main.flight-list .flight .flight-book table td {
+            font-size: 18px; }
+            .main.flight-list .flight .flight-book table td:first-child {
+              width: 45%; }
+      .main.flight-list .flight .submit {
+        margin-top: 20px;
+        width: 100%; }
+        .main.flight-list .flight .submit svg {
+          position: relative;
+          top: 4px;
+          margin-right: 5px; }
     .main.not-found {
       height: 60vh; }
       .main.not-found .navbar {
@@ -1538,8 +1769,6 @@ body {
   .main p {
     font-size: 16px; }
   .main.homepage .video-promo .video-wrap .mejs__container {
-    width: 500px !important;
-    height: auto !important;
     min-height: 250px;
     margin: 0 auto; }
   .main.about.contacts .headerText {
@@ -1593,11 +1822,37 @@ body {
       text-align: left; }
     .main.about.pricing .description {
       margin-left: 5%; }
+    .main.about.pricing .buttons {
+      width: 100%;
+      max-width: 100%; }
+      .main.about.pricing .buttons .headerText {
+        padding-bottom: 10px; }
+        .main.about.pricing .buttons .headerText h1 {
+          font-size: 30px;
+          margin-bottom: 30px; }
+      .main.about.pricing .buttons button, .main.about.pricing .buttons .btn.btn-primary {
+        display: inline-block;
+        margin: 0 10px; }
+    .main.about.pricing form {
+      width: 100%;
+      max-width: 100%;
+      text-align: center; }
+      .main.about.pricing form .form-group {
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: top; }
+      .main.about.pricing form label {
+        line-height: 2em; }
+      .main.about.pricing form input {
+        line-height: 2em; }
+      .main.about.pricing form textarea {
+        line-height: 1.99em;
+        padding-bottom: 0; }
   .main.not-found {
     display: table;
     width: 100%;
     height: 94vh;
-    margin-bottom: 185px; }
+    margin-bottom: -185px; }
     .main.not-found svg {
       width: 300px !important; }
     .main.not-found .info {
@@ -1616,13 +1871,12 @@ body {
 @media (min-width: 992px) {
   .main.homepage .video-promo {
     min-height: 565px;
-    padding-top: 100px;
-    padding-left: 50px;
-    /*            background: url('../img/video_promo_back.png') right top /contain no-repeat,  $maintextColor;
-                            text-align: left;*/ }
+    padding-top: 100px; }
     .main.homepage .video-promo p {
       width: 50%;
       margin: 0 auto; }
+    .main.homepage .video-promo ul {
+      margin-top: 60px; }
   .main.homepage .simple-solution {
     padding-top: 100px;
     padding-bottom: 70px;
@@ -1673,11 +1927,47 @@ body {
       border-bottom: 1px solid #d4dade; }
     .main.login.contacts .loginForm .btn-wrap {
       width: 100%;
-      text-align: center; } }
+      text-align: center; }
+  .main.about.pricing .headerText .description {
+    width: 400px; }
+  .main.about.pricing .price-packages .packages-list .package {
+    display: inline-block;
+    margin: 0 20px 20px 0;
+    width: 31%; }
+    .main.about.pricing .price-packages .packages-list .package p {
+      text-align: center; }
+  .main.flight-search .note {
+    max-width: initial; }
+    .main.flight-search .note .form-group {
+      width: auto;
+      max-width: 24%;
+      float: left;
+      margin-right: 10px; }
+    .main.flight-search .note .submit {
+      float: left;
+      width: 19%;
+      margin-top: -5px; }
+    .main.flight-search .note.flights-list {
+      min-height: 147px; } }
 
 @media only screen and (min-width: 1100px) {
   .main.login.contacts {
-    background: url(../img/about-back.png) 66% -9%/contain no-repeat; } }
+    background: url(../img/about-back.png) 66% -9%/contain no-repeat; }
+  .main.about.pricing form label {
+    line-height: 2em;
+    display: inline-block;
+    width: auto;
+    margin-right: 5px; }
+  .main.about.pricing form input {
+    line-height: 2em;
+    display: inline-block;
+    width: auto;
+    margin-right: 5px; }
+  .main.about.pricing form textarea {
+    line-height: 1.99em;
+    padding-bottom: 0;
+    display: inline-block;
+    width: auto; } }
 
 @media only screen and (min-width: 1200px) {
   .main .video-promo {
