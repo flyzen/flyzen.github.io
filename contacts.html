@@ -273,14 +273,24 @@
                                 <!--  <input type="hidden" name="debugEmail"                                  -->
                                 <!--  value="illarionovam@gmail.com">                                         -->
                                 <!--  ----------------------------------------------------------------------  -->
+                                <div class="form-group input-wrapp">
+                                    <label for="first_name">Hello, my name is</label>
+                                    <input placeholder="Jacob" id="first_name" maxlength="40" name="first_name" type="text"/>
+                                </div>
 
-                                <label for="first_name">Hello, my name is</label><input placeholder="Jacob" id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                                <div class="form-group input-wrapp">
+                                    <label for="email">my e-mail</label>
+                                    <input placeholder="example@mail.com" id="email" maxlength="80" name="email" size="20" type="text" />
+                                </div>
 
-                                <label for="email">my e-mail</label><input placeholder="example@mail.com" id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                                <div class="form-group input-wrapp">
+                                    <label for="description">and I want to ask</label>
+                                    <textarea name="description"></textarea>
+                                </div>
 
-                                <label for="description">and I want to ask</label><textarea name="description"></textarea><br>
-
-                                <input type="submit" name="submit" value="Send question">
+                                <div class="form-group btn-wrap">
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Send a question">
+                                </div>
 
                             </form>
 				

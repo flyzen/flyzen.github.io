@@ -651,12 +651,12 @@ body {
     .main p {
       /*width: 90%;*/
       /*margin: 0 auto 10px;*/ }
-    .main .simple-solution,
+    .main .simple-solution .container,
     .main .info {
       padding: 35px 0;
       overflow: hidden;
       text-align: center; }
-      .main .simple-solution .btn,
+      .main .simple-solution .container .btn,
       .main .info .btn {
         /*background-image: linear-gradient(180deg, #88c9ff 0%, #43aaff 100%);*/
         border-radius: 4px;
@@ -778,20 +778,20 @@ body {
         background-color: #52b0ff; }
         .main.homepage .benefits .container {
           color: #fff;
-          background: #52b0ff url("../img/benefits-back.png") 15% bottom/30% no-repeat;
+          background: #52b0ff url("../img/benefits-back.png") 5% bottom/40% no-repeat;
           padding: 35px 20% 140px;
           text-align: center; }
         .main.homepage .benefits p {
           font-size: 16px;
           width: 90%;
           margin: 0 auto 10px; }
-      .main.homepage .simple-solution {
+      .main.homepage .simple-solution .container {
         position: relative;
         overflow: hidden;
         height: auto;
         max-height: 550px;
         background: url("../img/video_promo_back.png") 30% top/cover no-repeat; }
-        .main.homepage .simple-solution:before {
+        .main.homepage .simple-solution .container:before {
           content: '';
           display: block;
           position: absolute;
@@ -799,8 +799,8 @@ body {
           height: 100%;
           top: 0;
           background-color: rgba(255, 255, 255, 0.9); }
-        .main.homepage .simple-solution .btn {
-          margin-bottom: 0; }
+      .main.homepage .simple-solution .btn {
+        margin-bottom: 0; }
     .main.login {
       background: url("../img/plane-back.png") center right/cover no-repeat;
       padding: 50px 0 30px;
@@ -2044,8 +2044,7 @@ body {
     padding: 50px 0 50px 50px; }
     .main.homepage .headerText .promo {
       text-align: left;
-      max-width: 90%;
-      margin-left: 15%; }
+      max-width: 90%; }
       .main.homepage .headerText .promo h1 {
         font-size: 60px; }
       .main.homepage .headerText .promo p {
@@ -2063,12 +2062,12 @@ body {
   .main.homepage .simple-solution p,
   .main.homepage .benefits p {
     font-size: 18px; }
-  .main.homepage .simple-solution {
+  .main.homepage .simple-solution .container {
     min-height: 500px; }
-    .main.homepage .simple-solution p {
-      margin-bottom: 40px; }
+  .main.homepage .simple-solution p {
+    margin-bottom: 40px; }
   .main.homepage .benefits .container {
-    background: #52b0ff url("../img/benefits-back.png") 0 bottom/50% no-repeat; }
+    background: #52b0ff url("../img/benefits-back.png") 0 bottom/40% no-repeat; }
   .main.about {
     background: url(../img/about-back.png) 65% 0/cover no-repeat; }
     .main.about .headerText h1 {
@@ -2146,16 +2145,17 @@ body {
     .main.homepage .video-promo ul {
       margin-top: 60px; }
   .main.homepage .simple-solution {
-    padding-top: 100px;
-    padding-bottom: 70px;
-    max-height: 580px;
-    background: url("../img/video_promo_back.png") 110% top/contain no-repeat;
     /*            .backImg{
                     min-height:500px;
                     background: url("../img/phone.png") 35% 40px /contain no-repeat;
                 }*/ }
-    .main.homepage .simple-solution:before {
-      display: none; }
+    .main.homepage .simple-solution .container {
+      padding-top: 100px;
+      padding-bottom: 70px;
+      max-height: 580px;
+      background: url("../img/video_promo_back.png") 110% top/contain no-repeat; }
+      .main.homepage .simple-solution .container:before {
+        display: none; }
     .main.homepage .simple-solution h2,
     .main.homepage .simple-solution p {
       max-width: 580px;
@@ -2163,7 +2163,7 @@ body {
   .main.homepage .benefits > .container {
     margin-top: 100px;
     padding: 35px 0 140px;
-    background: #52b0ff url("../img/benefits-back.png") 20px bottom/485px no-repeat; }
+    background: #52b0ff url("../img/benefits-back.png") 20px bottom/435px no-repeat; }
   .main.login .login-content {
     padding-top: 100px; }
   .main.login.contacts .login-text-wrap {
