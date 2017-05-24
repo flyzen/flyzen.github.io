@@ -84,48 +84,54 @@ $(function() {
             }
         }
     };
-    var clicking = false
+    var clicking = false;
     swipeCtrlStart = function(e) {
-        if (e.type === 'mousedown') {
-            clicking = true;
-        }   
-        if (e.clientY) {
-            yStart = e.clientY;
-        } else if (e.originalEvent.targetTouches) {
-            yStart = e.originalEvent.targetTouches[0].clientY;
+        if($(document).width() < 992) {
+            if (e.type === 'mousedown') {
+                clicking = true;
+            }   
+            if (e.clientY) {
+                yStart = e.clientY;
+            } else if (e.originalEvent.targetTouches) {
+                yStart = e.originalEvent.targetTouches[0].clientY;
+            }
         }
     };
     swipeCtrl = function(e) {
-        if (clicking) {
-            if (e.clientY) {
-                $('.flights-list-wrap').css('bottom', (e.clientY+35)*(-1) +'px'); 
-            }    
-        } else if (e.originalEvent.targetTouches) {
-            $('.flights-list-wrap').css('bottom', (e.originalEvent.targetTouches[0].clientY+35)*(-1) +'px'); 
+        if($(document).width() < 992) {
+            if (clicking) {
+                if (e.clientY) {
+                    $('.flights-list-wrap').css('bottom', (e.clientY+35)*(-1) +'px'); 
+                }    
+            } else if (e.originalEvent.targetTouches) {
+                $('.flights-list-wrap').css('bottom', (e.originalEvent.targetTouches[0].clientY+35)*(-1) +'px'); 
+            }
         }
     };
     swipeCtrlEnd = function(e) {
-        if (e.clientY) {
-            yFinish = e.clientY;
-        } else if (e.originalEvent.changedTouches) {
-            yFinish = e.originalEvent.changedTouches[0].clientY;
-        }
-        if ( yStart - yFinish > 200 ) { //вверх
-            $('.flights-list-wrap').css({'transition': 'all 0.3s ease','bottom':'-50px'});
+        if($(document).width() < 992) {
+            if (e.clientY) {
+                yFinish = e.clientY;
+            } else if (e.originalEvent.changedTouches) {
+                yFinish = e.originalEvent.changedTouches[0].clientY;
+            }
+            if ( yStart - yFinish > 200 ) { //вверх
+                $('.flights-list-wrap').css({'transition': 'all 0.3s ease','bottom':'-50px'});
+                    setTimeout (function(){
+                    $('.flights-list-wrap').attr('style', function(i, style) {
+                        return style.replace(/transition[^;]+;?/g, '');
+                    });
+                }, 300);
+            } else if ( yFinish != yStart ) { // вниз
+                $('.flights-list-wrap').css({'transition': 'all 0.3s ease','bottom':'-100%'});
                 setTimeout (function(){
-                $('.flights-list-wrap').attr('style', function(i, style) {
-                    return style.replace(/transition[^;]+;?/g, '');
-                });
-            }, 300);
-        } else if ( yFinish != yStart ) { // вниз
-            $('.flights-list-wrap').css({'transition': 'all 0.3s ease','bottom':'-100%'});
-            setTimeout (function(){
-                $('.flights-list-wrap').attr('style', function(i, style) {
-                    return style.replace(/transition[^;]+;?/g, '');
-                });
-            }, 300);
+                    $('.flights-list-wrap').attr('style', function(i, style) {
+                        return style.replace(/transition[^;]+;?/g, '');
+                    });
+                }, 300);
+            }
+            clicking = false;
         }
-        clicking = false;
     }
     $('.headerText.first').each(function(){
         var yStart, yFinish;
@@ -214,25 +220,26 @@ $(function() {
         $(this).on('touchstart', touchStartCtrl);
         $(this).on('touchend', touchEndCtrl);
     })
-    $('.package').on('click', function() {
-        // $('.chosen').removeClass('chosen');
-        var panes = $(this).closest('.tab-content').find('.tab-pane'), tabs = $('.nav-tabs').find('li');
-        panes.removeClass('active');
-        // $(this).addClass('chosen').closest('.tab-pane').addClass('active');
-        $(this).closest('.tab-pane').addClass('in active');
-        for (i in panes) {
-            if($(panes[i]).hasClass('active')) {
-                tabs.removeClass('active');
-                $(tabs[i]).addClass('active');
-                break;
-            }
-        }
-    });
+    // $('.package').on('click', function() {
+    //     // $('.chosen').removeClass('chosen');
+    //     var panes = $(this).closest('.tab-content').find('.tab-pane'), tabs = $('.nav-tabs').find('li');
+    //     panes.removeClass('active');
+    //     // $(this).addClass('chosen').closest('.tab-pane').addClass('active');
+    //     $(this).closest('.tab-pane').addClass('in active');
+    //     for (i in panes) {
+    //         if($(panes[i]).hasClass('active')) {
+    //             tabs.removeClass('active');
+    //             $(tabs[i]).addClass('active');
+    //             break;
+    //         }
+    //     }
+    // });
     $('.open-form').on('click', function() {
         $(this).css('display', 'none');
         $('.form-hidden').slideDown();
         $('.to-faq').removeClass('btn-primary').addClass('btn-transparent');
     });
+    $('.selectpicker').selectpicker();
     autosize($('textarea')); // Это нужно обязательно запускать каждый раз, когда подгружается секция, содержащая textarea.
     // blocks.on('touchstart', touchStartCtrl);
     // blocks.on('touchend', touchEndCtrl);

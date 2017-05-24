@@ -229,7 +229,7 @@ p {
 
 header {
   position: relative;
-  z-index: 2;
+  z-index: 1032;
   margin-top: 50px; }
   header .navbar {
     border: none;
@@ -237,7 +237,7 @@ header {
     margin-bottom: 0;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 1031;
     background-color: #fbfdff;
     margin-top: -50px;
     box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
@@ -504,6 +504,9 @@ footer {
     margin-top: 0; }
   footer a {
     text-decoration: underline; }
+    footer a.description:hover, footer a.description:active, footer a.description:focus {
+      color: #77a2c5;
+      text-decoration: underline; }
   footer p {
     margin-bottom: 0; }
   footer .phone {
@@ -700,20 +703,42 @@ body {
           width: 90%;
           margin: 0 auto;
           padding-bottom: 30px; }
+        .main.homepage .video-promo .list-wrap {
+          text-align: left;
+          width: 536px;
+          max-width: 90%;
+          padding: 40px 20px 30px;
+          display: inline-block; }
+          .main.homepage .video-promo .list-wrap p {
+            color: #77a2c4;
+            font-family: "Segoe UI";
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            width: 90%;
+            padding-bottom: 0; }
         .main.homepage .video-promo ul {
-          width: 90%;
-          max-width: 470px;
-          margin: 0 auto 40px;
-          text-align: left; }
+          max-width: 570px;
+          margin: 20px 0  10px;
+          text-align: left;
+          padding-left: 22px;
+          list-style: none; }
           .main.homepage .video-promo ul li {
-            font-size: 16px; }
+            font-size: 16px;
+            position: relative;
+            height: 40px; }
+            .main.homepage .video-promo ul li svg {
+              transform: rotate(45deg);
+              margin-right: 20px; }
+              .main.homepage .video-promo ul li svg path {
+                fill: #b1dbff; }
         .main.homepage .video-promo .video-wrap {
           max-width: 95%;
           margin: 0 auto; }
           .main.homepage .video-promo .video-wrap .mejs__container {
             max-width: 100%;
             height: auto !important;
-            min-height: 250px; }
+            min-height: 350px; }
             .main.homepage .video-promo .video-wrap .mejs__container video {
               height: 100%; }
             .main.homepage .video-promo .video-wrap .mejs__container.clean .mejs__controls {
@@ -1114,16 +1139,16 @@ body {
               width: 100%;
               max-width: 350px;
               margin: 0 auto; }
-              .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head {
+              .main.about.pricing .price-packages .packages-list .tab-pane#gold .package .package-head {
                 background-color: #52b0ff; }
-                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .package-info {
+                .main.about.pricing .price-packages .packages-list .tab-pane#gold .package .package-head .package-info {
                   border-color: #fff;
                   color: #fff; }
-                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head svg path {
+                .main.about.pricing .price-packages .packages-list .tab-pane#gold .package .package-head svg path {
                   fill: #fff; }
-                .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .text {
+                .main.about.pricing .price-packages .packages-list .tab-pane#gold .package .package-head .text {
                   color: #fff; }
-                  .main.about.pricing .price-packages .packages-list .tab-pane.active .package .package-head .text svg path {
+                  .main.about.pricing .price-packages .packages-list .tab-pane#gold .package .package-head .text svg path {
                     fill: #fff; }
             .main.about.pricing .price-packages .packages-list .package {
               border: 1px solid #d5ecff;
@@ -1856,11 +1881,11 @@ body {
     .main.flight-search .flights-list-wrap, .main.flight-list .flights-list-wrap {
       padding: 0;
       position: fixed;
-      transition: all 0 ease;
+      transition: all 0s ease;
       bottom: -100%;
       left: 0;
       right: 0;
-      z-index: 1031; }
+      z-index: 1033; }
       .main.flight-search .flights-list-wrap:before, .main.flight-list .flights-list-wrap:before {
         content: '';
         display: block;
@@ -1890,7 +1915,66 @@ body {
           margin: 0 20px 20px; }
       .main.flight-search .flights-list .description, .main.flight-list .flights-list .description {
         margin-top: 5px;
-        text-align: left; }
+        text-align: left;
+        font-weight: 400; }
+      .main.flight-search .flights-list .bootstrap-select, .main.flight-list .flights-list .bootstrap-select {
+        display: block;
+        margin: 0 auto 20px;
+        background-color: white;
+        border: 1px solid #b2dbff;
+        border-radius: 2px; }
+        .main.flight-search .flights-list .bootstrap-select .btn, .main.flight-list .flights-list .bootstrap-select .btn {
+          margin: 0;
+          height: auto;
+          padding-right: 0; }
+          .main.flight-search .flights-list .bootstrap-select .btn .caret, .main.flight-list .flights-list .bootstrap-select .btn .caret {
+            color: #b2dbff; }
+          .main.flight-search .flights-list .bootstrap-select .btn:hover, .main.flight-search .flights-list .bootstrap-select .btn:focus, .main.flight-search .flights-list .bootstrap-select .btn:active, .main.flight-search .flights-list .bootstrap-select .btn:focus:active, .main.flight-list .flights-list .bootstrap-select .btn:hover, .main.flight-list .flights-list .bootstrap-select .btn:focus, .main.flight-list .flights-list .bootstrap-select .btn:active, .main.flight-list .flights-list .bootstrap-select .btn:focus:active {
+            background-color: #F6FBFF; }
+        .main.flight-search .flights-list .bootstrap-select.open .btn.dropdown-toggle, .main.flight-list .flights-list .bootstrap-select.open .btn.dropdown-toggle {
+          background-color: #F6FBFF;
+          box-shadow: none; }
+        .main.flight-search .flights-list .bootstrap-select .dropdown-toggle:focus, .main.flight-search .flights-list .bootstrap-select .dropdown-toggle:active, .main.flight-search .flights-list .bootstrap-select .dropdown-toggle:active:focus, .main.flight-list .flights-list .bootstrap-select .dropdown-toggle:focus, .main.flight-list .flights-list .bootstrap-select .dropdown-toggle:active, .main.flight-list .flights-list .bootstrap-select .dropdown-toggle:active:focus {
+          outline: none !important; }
+        .main.flight-search .flights-list .bootstrap-select .dropdown-menu.open, .main.flight-list .flights-list .bootstrap-select .dropdown-menu.open {
+          margin: 0;
+          padding: 0; }
+        .main.flight-search .flights-list .bootstrap-select .dropdown-menu > li > a:focus, .main.flight-search .flights-list .bootstrap-select .dropdown-menu > li > a:hover, .main.flight-list .flights-list .bootstrap-select .dropdown-menu > li > a:focus, .main.flight-list .flights-list .bootstrap-select .dropdown-menu > li > a:hover {
+          background-color: #F6FBFF; }
+        .main.flight-search .flights-list .bootstrap-select .filter-option, .main.flight-search .flights-list .bootstrap-select li > a, .main.flight-list .flights-list .bootstrap-select .filter-option, .main.flight-list .flights-list .bootstrap-select li > a {
+          padding: 0; }
+          .main.flight-search .flights-list .bootstrap-select .filter-option > div, .main.flight-search .flights-list .bootstrap-select li > a > div, .main.flight-list .flights-list .bootstrap-select .filter-option > div, .main.flight-list .flights-list .bootstrap-select li > a > div {
+            border: 1px solid #b2dbff;
+            border-width: 1px 1px 0 1px;
+            padding: 15px; }
+            .main.flight-search .flights-list .bootstrap-select .filter-option > div .name, .main.flight-search .flights-list .bootstrap-select li > a > div .name, .main.flight-list .flights-list .bootstrap-select .filter-option > div .name, .main.flight-list .flights-list .bootstrap-select li > a > div .name {
+              color: #52b0ff;
+              font-family: "Segoe UI";
+              font-size: 16px;
+              font-weight: 600;
+              text-transform: uppercase; }
+            .main.flight-search .flights-list .bootstrap-select .filter-option > div .info, .main.flight-search .flights-list .bootstrap-select li > a > div .info, .main.flight-list .flights-list .bootstrap-select .filter-option > div .info, .main.flight-list .flights-list .bootstrap-select li > a > div .info {
+              font-family: "Segoe UI";
+              line-height: 24px;
+              color: #77a2c4;
+              font-size: 14px;
+              font-weight: 400;
+              padding: 0;
+              text-align: left;
+              width: auto; }
+            .main.flight-search .flights-list .bootstrap-select .filter-option > div .price, .main.flight-search .flights-list .bootstrap-select li > a > div .price, .main.flight-list .flights-list .bootstrap-select .filter-option > div .price, .main.flight-list .flights-list .bootstrap-select li > a > div .price {
+              font-family: "Segoe UI";
+              line-height: 24px;
+              color: #52b0ff;
+              font-size: 16px;
+              font-weight: 600; }
+        .main.flight-search .flights-list .bootstrap-select .filter-option, .main.flight-list .flights-list .bootstrap-select .filter-option {
+          padding: 5px 10px; }
+          .main.flight-search .flights-list .bootstrap-select .filter-option > div, .main.flight-list .flights-list .bootstrap-select .filter-option > div {
+            border: none;
+            padding: 5px; }
+            .main.flight-search .flights-list .bootstrap-select .filter-option > div .name, .main.flight-list .flights-list .bootstrap-select .filter-option > div .name {
+              line-height: 30px; }
       .main.flight-search .flights-list .note, .main.flight-list .flights-list .note {
         background-color: #f5faff;
         box-shadow: none;
@@ -1924,6 +2008,13 @@ body {
             color: #bebfbf; }
             .main.flight-search .flights-list .note .flight .close a, .main.flight-list .flights-list .note .flight .close a {
               color: #337ab7; }
+      .main.flight-search .flights-list .price, .main.flight-list .flights-list .price {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px; }
+      .main.flight-search .flights-list .btn, .main.flight-list .flights-list .btn {
+        display: block;
+        margin: 20px auto; }
     .main.not-found .navbar {
       margin-bottom: 0; }
     .main.not-found .info {
@@ -2025,7 +2116,6 @@ body {
   .main p {
     font-size: 16px; }
   .main.homepage .video-promo .video-wrap .mejs__container {
-    min-height: 250px;
     margin: 0 auto; }
   .main.about.contacts .headerText {
     width: 100%; } }
@@ -2138,12 +2228,24 @@ body {
 @media (min-width: 992px) {
   .main.homepage .video-promo {
     min-height: 565px;
-    padding-top: 100px; }
+    padding-top: 100px;
+    position: relative; }
     .main.homepage .video-promo p {
       width: 50%;
       margin: 0 auto; }
-    .main.homepage .video-promo ul {
-      margin-top: 60px; }
+    .main.homepage .video-promo .list-wrap {
+      width: 700px;
+      left: 10%;
+      top: 50px;
+      position: absolute;
+      background-color: #fbfdff;
+      box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+      .main.homepage .video-promo .list-wrap p {
+        text-align: left; }
+      .main.homepage .video-promo .list-wrap li {
+        width: 50%; }
+    .main.homepage .video-promo .video-wrap {
+      float: right; }
   .main.homepage .simple-solution {
     /*            .backImg{
                     min-height:500px;
@@ -2258,15 +2360,23 @@ body {
       float: right; }
   .main.flight-list .flights-list-wrap, .main.flight-search .flights-list-wrap {
     position: relative;
+    height: auto;
     display: initial;
+    max-width: 300px;
     top: auto;
     left: auto;
     right: auto;
-    bottom: auto; }
+    bottom: auto;
+    box-shadow: 1.5px 2.6px 20px rgba(50, 115, 167, 0.25); }
+    .main.flight-list .flights-list-wrap:before, .main.flight-search .flights-list-wrap:before {
+      box-shadow: none; }
     .main.flight-list .flights-list-wrap .flights-list, .main.flight-search .flights-list-wrap .flights-list {
+      min-height: initial;
       height: auto; }
       .main.flight-list .flights-list-wrap .flights-list .note, .main.flight-search .flights-list-wrap .flights-list .note {
-        max-width: 400px; } }
+        max-width: 400px; }
+  .main.flight-list .flights-list-wrap {
+    margin-top: 31px; } }
 
 @media only screen and (min-width: 1100px) {
   .main.login.contacts {
@@ -2288,8 +2398,12 @@ body {
     width: auto; } }
 
 @media only screen and (min-width: 1200px) {
-  .main .video-promo {
-    padding-left: 0; } }
+  .main.homepage .video-promo {
+    padding-left: 0; }
+    .main.homepage .video-promo .video-wrap {
+      margin-right: 150px; }
+  .main.flight-list .flights-list-wrap {
+    margin-left: 50px; } }
 
 @media only screen and (min-width: 1400px) {
   .main.homepage .benefits .container {
